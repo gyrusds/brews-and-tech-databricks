@@ -66,6 +66,20 @@
 
 -- COMMAND ----------
 
+-- MAGIC %python
+-- MAGIC user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split(".")[0]
+-- MAGIC
+-- MAGIC catalog = f"main_{user_name}" 
+-- MAGIC schema = "uc_acl"
+-- MAGIC database = schema
+-- MAGIC
+-- MAGIC print(f"{catalog}.{schema}.{database}")
+-- MAGIC
+-- MAGIC spark.sql(f"USE CATALOG {catalog}")
+-- MAGIC spark.sql(f"USE SCHEMA {schema}")
+
+-- COMMAND ----------
+
 --STORE DIMENSION
 CREATE OR REPLACE  TABLE dim_store(
   store_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

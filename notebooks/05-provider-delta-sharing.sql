@@ -47,7 +47,7 @@
 
 -- COMMAND ----------
 
--- MAGIC %run ./_resources/00-setup $reset_all_data=$reset_all_data
+-- %run ./_resources/00-setup $reset_all_data=$reset_all_data
 
 -- COMMAND ----------
 
@@ -81,8 +81,16 @@
 -- COMMAND ----------
 
 -- MAGIC %python
+-- MAGIC user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split(".")[0]
+-- MAGIC
+-- MAGIC catalog = f"main_{user_name}" 
+-- MAGIC schema = "uc_acl"
+-- MAGIC database = schema
+
+-- COMMAND ----------
+
+-- MAGIC %python
 -- MAGIC print(f"The demo will create and use the catalog {catalog}:")
--- MAGIC spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog}")
 -- MAGIC spark.sql(f"USE CATALOG {catalog}")
 
 -- COMMAND ----------

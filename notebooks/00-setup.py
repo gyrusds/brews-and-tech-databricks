@@ -4,6 +4,11 @@
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC DROP CATALOG main_alvaro CASCADE;
+
+# COMMAND ----------
+
 user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split(".")[0]
 
 catalog = f"main_{user_name}" 
@@ -11,14 +16,6 @@ schema = "uc_acl"
 database = schema
 
 print(f"{catalog}.{schema}.{database}")
-
-# COMMAND ----------
-
-
-
-# COMMAND ----------
-
-
 
 # COMMAND ----------
 
@@ -31,17 +28,10 @@ print(catalog_exists)
 
 # COMMAND ----------
 
-
-
-# COMMAND ----------
-
+# Check statement to be executed
 catalog_location = f"'abfss://democontainer@gyrussandboxstorage.dfs.core.windows.net/unity/{catalog}'"
 
 print(f"CREATE CATALOG IF NOT EXISTS {catalog} MANAGED LOCATION {catalog_location}")
-
-# COMMAND ----------
-
-
 
 # COMMAND ----------
 
@@ -52,10 +42,6 @@ if not catalog_exists:
     if catalog == "dbdemos":
       spark.sql(f"GRANT CREATE, USAGE on CATALOG {catalog} TO `account users`")
 spark.sql(f"USE CATALOG {catalog}")
-
-# COMMAND ----------
-
-
 
 # COMMAND ----------
 

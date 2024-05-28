@@ -171,7 +171,7 @@ GRANT SELECT ON TABLE customers TO `account users`;
 
 -- We'll grant an extra MODIFY to our Data Engineer
 -- Note: make sure you created the dataengineers group first as an account admin!
-GRANT SELECT, MODIFY ON TABLE customers TO `dataengineers`;
+GRANT SELECT, MODIFY ON TABLE customers TO `bytsession_databricks_dataengineers`;
 
 -- COMMAND ----------
 

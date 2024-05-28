@@ -89,18 +89,6 @@
 
 -- COMMAND ----------
 
-
-
--- COMMAND ----------
-
-CREATE GROUP ANALYST_USA WITH USER `alvaro.perez@gyrusds.io`;
-
--- COMMAND ----------
-
-CREATE GROUP bu_admin WITH USER `alvaro.perez@gyrusds.io`;
-
--- COMMAND ----------
-
 SHOW GROUPS;
 
 -- COMMAND ----------
