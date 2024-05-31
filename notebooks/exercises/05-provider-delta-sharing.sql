@@ -42,8 +42,8 @@
 
 -- COMMAND ----------
 
--- MAGIC %python
--- MAGIC dbutils.widgets.dropdown("reset_all_data", "false", ["true", "false"], "Reset all data")
+-- %python
+-- dbutils.widgets.dropdown("reset_all_data", "false", ["true", "false"], "Reset all data")
 
 -- COMMAND ----------
 
@@ -157,13 +157,8 @@ DESCRIBE SHARE southwestairlines;
 -- COMMAND ----------
 
 -- DBTITLE 1,Add our airlines tables to the SHARE
-ALTER SHARE americanairlines  ADD TABLE dbdemos_sharing_airlinedata.lookupcodes ;
+ALTER SHARE americanairlines  ADD TABLE uc_acl.customers ;
 ALTER SHARE southwestairlines ADD TABLE dbdemos_sharing_airlinedata.lookupcodes;
-
--- COMMAND ----------
-
--- DBTITLE 1,Get In-House Unique Carrier Codes to Filter Specifically to Only the Relevant Airlines
-SELECT * FROM dbdemos_sharing_airlinedata.lookupcodes WHERE Description = "Southwest Airlines Co." OR Description = "American Airlines Inc."
 
 -- COMMAND ----------
 

@@ -88,7 +88,7 @@
 -- COMMAND ----------
 
 -- MAGIC %python
--- MAGIC spark.sql(f"USE CATALOG {catalog}");
+-- MAGIC # Use catalog
 
 -- COMMAND ----------
 
@@ -127,17 +127,17 @@ USE SCHEMA uc_acl;
 
 -- COMMAND ----------
 
-CREATE TABLE IF NOT EXISTS customers (
-  id STRING,
-  creation_date STRING,
-  firstname STRING,
-  lastname STRING,
-  country STRING,
-  email STRING,
-  address STRING,
-  gender DOUBLE,
-  age_group DOUBLE); ; 
-GRANT SELECT, MODIFY on TABLE customers TO `account users`;  -- for the demo only, allow all users to edit the table - don't do that in production!
+-- CREATE TABLE IF NOT EXISTS customers (
+--   id STRING,
+--   creation_date STRING,
+--   firstname STRING,
+--   lastname STRING,
+--   country STRING,
+--   email STRING,
+--   address STRING,
+--   gender DOUBLE,
+--   age_group DOUBLE); ; 
+-- GRANT SELECT, MODIFY on TABLE customers TO `account users`;  -- for the demo only, allow all users to edit the table - don't do that in production!
 
 -- COMMAND ----------
 

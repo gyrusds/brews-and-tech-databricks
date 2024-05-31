@@ -4,11 +4,6 @@
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC DROP CATALOG main_alvaro CASCADE;
-
-# COMMAND ----------
-
 user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split(".")[0]
 
 catalog = f"main_{user_name}" 
@@ -100,3 +95,8 @@ user_data = [(u, countries[random.randint(0,2)], random.randint(0,1)) for u in w
 
 spark.createDataFrame(user_data, ['analyst_email', 'country_filter',"gdpr_filter"]) \
        .repartition(3).write.mode('overwrite').saveAsTable("analyst_permissions")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC SELECT * FROM analyst_permissions
